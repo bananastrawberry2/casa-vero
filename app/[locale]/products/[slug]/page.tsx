@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { PortableText } from "@portabletext/react";
 import { client, getProductBySlug, urlFor } from "@/lib/sanity";
+import type { Product } from "@/lib/sanity";
 import { ProductGallery } from "@/components/products/ProductGallery";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { AddToCartButton } from "./AddToCartButton";
