@@ -35,7 +35,7 @@ export async function POST(req: Request) {
       success_url: `${origin}/${locale}/checkout/success`,
       cancel_url: `${origin}/${locale}/checkout/cancel`,
       shipping_address_collection: {
-        allowed_countries: ["GR", "CY", "DE", "UK", "US"],
+        allowed_countries: ["GR", "CY", "DE", "GB", "US"],
       },
     });
 
