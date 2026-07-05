@@ -54,7 +54,7 @@ export default async function ProductPage({
   if (!product) notFound();
 
   // Related products from the same category
-  const related = product.category?._id
+  const related = product.category?._id && client
     ? await client.fetch(
         `*[_type == "product" && category._ref == $catId && slug.current != $slug] | order(price asc) [0..3]{
           _id, name, slug, price, compareAtPrice, inStock, featured,
