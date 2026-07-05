@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { PortableText } from "@portabletext/react";
 import { getBlogPostBySlug, getBlogPosts, urlFor } from "@/lib/sanity";
