@@ -54,16 +54,17 @@ export default async function ProductPage({
   if (!product) notFound();
 
   // Related products from the same category
-  const related = product.category?._id && client
-    ? await client.fetch(
+  let related: Product[] = [];
+  if (product.category?._id && client) {
+    related = await client.fetch(
         `*[_type == "product" && category._ref == $catId && slug.current != $slug] | order(price asc) [0..3]{
           _id, name, slug, price, compareAtPrice, inStock, featured,
           images, materials, colors,
           category->{ _id, title, slug }
         }`,
         { catId: product.category._id, slug }
-      )
-    : [];
+      );
+  }
 
   const name = product.name[lang];
   const description = product.description?.[lang];
