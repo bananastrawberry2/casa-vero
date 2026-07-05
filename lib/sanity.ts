@@ -81,12 +81,12 @@ export interface BlogPost {
 // ─── Safe query helper ──────────────────────────────
 function safeFetch<T>(query: string, params?: Record<string, unknown>): Promise<T> {
   if (!client) return Promise.resolve([] as unknown as T);
-  return client.fetch<T>(query, params, { next: { revalidate: 60 } });
+  return client.fetch<T>(query, params || {}, { next: { revalidate: 60 } });
 }
 
 function safeFetchOne<T>(query: string, params?: Record<string, unknown>): Promise<T | null> {
   if (!client) return Promise.resolve(null);
-  return client.fetch<T>(query, params, { next: { revalidate: 60 } });
+  return client.fetch<T>(query, params || {}, { next: { revalidate: 60 } });
 }
 
 // ─── Queries ──────────────────────────────────────────
