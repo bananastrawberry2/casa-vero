@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   description:
     "Ανακαλύψτε μοναδικά, χειροποίητα έπιπλα. Ποιοτική ξύλινη χειροποίητη επίπλωση για τον χώρο σας.",
   robots: { index: true, follow: true },
+  verification: { google: "ZKqgJ5f1UD2Ok-QvqV2aYotDkDAIxfnVrmbYfhU2Eb4" },
   openGraph: {
     type: "website",
     locale: "el_GR",
