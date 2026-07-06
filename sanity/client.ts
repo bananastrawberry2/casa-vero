@@ -2,11 +2,10 @@ import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
+const projectId = "g1u4zgq6";
+const dataset = "production";
 
-// Only create client if projectId is valid
-const isValidConfig = /^[a-z0-9-]+$/.test(projectId);
+const isValidConfig = true;
 
 export const client = isValidConfig
   ? createClient({
