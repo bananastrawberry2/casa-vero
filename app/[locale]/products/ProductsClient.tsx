@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { ProductFilters } from "@/components/products/ProductFilters";
+import { Grid3X3, List } from "lucide-react";
 import type { Product, Category } from "@/lib/sanity";
 
 export function ProductsClient({
@@ -62,12 +63,15 @@ export function ProductsClient({
   }, [products, selectedCategory, searchQuery, sort, lang]);
 
   return (
-    <div className="container-page py-8 md:py-12">
-      <h1 className="font-serif text-3xl md:text-4xl text-stone-800 mb-8">
-        {t("title")}
-      </h1>
+    <div className="container-page py-12 md:py-16">
+      {/* Breadcrumb */}
+      <div className="text-sm text-stone-400 mb-8">
+        <span className="text-stone-500 font-medium">{t("title")}</span>
+        <span className="mx-2">—</span>
+        <span className="text-stone-400">{filtered.length} προϊόντα</span>
+      </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
         <ProductFilters
           categories={categories}
           selectedCategory={selectedCategory}
@@ -79,6 +83,22 @@ export function ProductsClient({
         />
 
         <div className="flex-1">
+          {/* Sort and count bar */}
+          <div className="flex items-center justify-between mb-8 pb-6 border-b border-stone-100">
+            <p className="text-sm text-stone-500">
+              {t("all_categories")}
+              {selectedCategory && (
+                <span className="ml-1 text-wood-600">
+                  / {categories.find(c => c.slug.current === selectedCategory)?.title[lang]}
+                </span>
+              )}
+            </p>
+            <div className="flex items-center gap-3">
+              <Grid3X3 className="w-4 h-4 text-wood-600" />
+              <List className="w-4 h-4 text-stone-300" />
+            </div>
+          </div>
+
           <ProductGrid
             products={filtered}
             emptyMessage={t("no_results")}
