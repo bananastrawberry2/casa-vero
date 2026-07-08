@@ -4,15 +4,6 @@
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
 
-  --color-habitat-bg: #ffffff;
-  --color-habitat-text: #2e2e2e;
-  --color-habitat-muted: #999999;
-  --color-habitat-light: #f4f4f4;
-  --color-habitat-border: #e8e8e8;
-  --color-habitat-green: #83b735;
-  --color-habitat-dark: #1a1a1a;
-  --color-habitat-gray: #cfd4db;
-
   --color-wood-50: #faf7f4;
   --color-wood-100: #f0e9e0;
   --color-wood-200: #dfd1be;
@@ -23,6 +14,9 @@
   --color-wood-700: #75533c;
   --color-wood-800: #634635;
   --color-wood-900: #533c2e;
+
+  --color-cream-bg: #fcf9f6;
+  --color-green-cta: #6b8f3a;
 }
 
 @layer base {
@@ -30,72 +24,98 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background-color: var(--color-habitat-bg);
-    color: var(--color-habitat-text);
+    background-color: #fcf9f6;
+    color: #1c1c1c;
     font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--font-serif);
-  }
-
-  ::selection {
-    background-color: var(--color-wood-200);
-    color: var(--color-wood-900);
-  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); }
 }
 
-@layer components {
-  .container-page {
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+/* ─── Animations ─────────────────────── */
 
-  @media (min-width: 640px) {
-    .container-page {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  @media (min-width: 1024px) {
-    .container-page {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    letter-spacing: -0.025em;
-    color: var(--color-habitat-text);
-    margin-bottom: 2rem;
-  }
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-  @media (min-width: 768px) {
-    .section-title {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-    }
-  }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
-  .nav-link {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-habitat-text);
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
 
-  .nav-link:hover {
-    color: var(--color-habitat-green);
-  }
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+
+/* ─── Utilities ─────────────────────── */
+
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* ─── Card hover effect ──────────────── */
+
+.card-lift {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* ─── Image shimmer placeholder ──────── */
+
+.shimmer {
+  background: linear-gradient(90deg, #f0e9e0 25%, #e5d5be 50%, #f0e9e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }

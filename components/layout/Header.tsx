@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { ShoppingBag, Search, ChevronDown } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
+  { href: "", label: "home" },
   { href: "/products", label: "products" },
-  { href: "/categories/mpoufes", label: "Μπουφέδες" },
   { href: "/blog", label: "blog" },
   { href: "/about", label: "about" },
   { href: "/contact", label: "contact" },
@@ -21,7 +21,14 @@ export function Header() {
   const t = useTranslations("navigation");
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { items } = useCart();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const locale = pathname.split("/")[1];
   const isActive = (href: string) => {
@@ -30,89 +37,97 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white border-b border-habitat-border sticky top-0 z-50">
-      {/* Top bar */}
-      <div className="hidden md:block bg-habitat-light">
-        <div className="container-page flex items-center justify-between h-9">
-          <div className="flex items-center gap-1">
-            <LanguageSwitcher />
-          </div>
-          <div className="flex items-center gap-4 text-[11px] text-habitat-muted tracking-wide">
-            <Link href={`/${locale}/about`} className="hover:text-habitat-text transition-colors">About</Link>
-            <Link href={`/${locale}/contact`} className="hover:text-habitat-text transition-colors">{t("contact")}</Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main header */}
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        scrolled
+          ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5"
+          : "bg-transparent"
+      )}
+    >
       <div className="container-page">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Hamburger (mobile) */}
-          <button
-            className="md:hidden p-2 text-habitat-text"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3 6h16M3 11h16M3 16h16"/>
-            </svg>
-          </button>
-
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="font-serif text-2xl md:text-3xl text-habitat-text tracking-tight"
+            className={cn(
+              "font-serif text-2xl md:text-3xl tracking-tight transition-colors duration-500",
+              scrolled ? "text-stone-800" : "text-white"
+            )}
           >
             CASA VERO
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={`/${locale}${href}`}
                 className={cn(
-                  "nav-link relative py-6",
-                  isActive(href) && "nav-link-active"
+                  "text-sm tracking-widest uppercase transition-all duration-300 py-1 relative",
+                  isActive(href)
+                    ? scrolled ? "text-wood-600" : "text-white"
+                    : scrolled ? "text-stone-500 hover:text-stone-800" : "text-white/70 hover:text-white"
                 )}
               >
-                {label.toUpperCase()}
+                {t(label)}
+                {isActive(href) && (
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 right-0 h-0.5 rounded-full",
+                    scrolled ? "bg-wood-600" : "bg-white"
+                  )} />
+                )}
               </Link>
             ))}
           </nav>
 
-          {/* Right side */}
-          <div className="flex items-center gap-2">
-            <button className="hidden md:flex w-10 h-10 items-center justify-center text-habitat-muted hover:text-habitat-text transition-colors rounded-full hover:bg-habitat-light">
-              <Search className="w-[18px] h-[18px]" />
-            </button>
+          {/* Right */}
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
             <Link
               href={`/${locale}/cart`}
-              className="relative w-10 h-10 flex items-center justify-center text-habitat-muted hover:text-habitat-text transition-colors rounded-full hover:bg-habitat-light"
+              className={cn(
+                "relative p-2.5 transition-colors duration-500",
+                scrolled ? "text-stone-600 hover:text-stone-800" : "text-white/80 hover:text-white"
+              )}
             >
-              <ShoppingBag className="w-[18px] h-[18px]" />
+              <ShoppingBag className="w-5 h-5" />
               {items.length > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-[18px] h-[18px] bg-habitat-green text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                  {items.reduce((sum, i) => sum + i.quantity, 0)}
+                <span className="absolute -top-0.5 -right-0.5 w-4.5 h-4.5 bg-wood-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                  {items.reduce((s, i) => s + i.quantity, 0)}
                 </span>
               )}
             </Link>
+
+            {/* Mobile hamburger */}
+            <button
+              className={cn(
+                "md:hidden p-2.5 transition-colors duration-500",
+                scrolled ? "text-stone-600" : "text-white/80"
+              )}
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M3 5h14M3 10h14M3 15h14" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile nav */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-habitat-border bg-white">
-          <nav className="container-page py-4 space-y-1">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-stone-100">
+          <nav className="container-page py-6 space-y-1">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={`/${locale}${href}`}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 px-4 text-sm text-habitat-text hover:bg-habitat-light rounded-lg transition-colors"
+                className="block py-3 px-4 text-sm text-stone-700 hover:bg-stone-50 rounded-xl transition-colors"
               >
-                {label.toUpperCase()}
+                {t(label)}
               </Link>
             ))}
             <div className="pt-3 px-4">

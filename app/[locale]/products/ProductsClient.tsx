@@ -57,8 +57,8 @@ export function ProductsClient({
     <div className="container-page py-8 md:py-12">
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="font-serif text-3xl text-habitat-text mb-1">{t("title")}</h1>
-        <p className="text-sm text-habitat-muted">{filtered.length} προϊόντα</p>
+        <h1 className="font-serif text-4xl text-stone-800 mb-1">{t("title")}</h1>
+        <p className="text-sm text-stone-400">{filtered.length} προϊόντα</p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8">
