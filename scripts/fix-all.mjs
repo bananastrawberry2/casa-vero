@@ -30,20 +30,20 @@ const PRODUCT_IMAGES = {
   "Luna Δερμάτινη Καρέκλα": { url: "https://images.unsplash.com/photo-1519947486511-46149fa0a254?w=800", seo: "Δερμάτινη καρέκλα τραπεζαρίας πολυτελείας - Casa Vero" },
   "Rosa Ξύλινη Καρέκλα Οξιά": { url: "https://images.unsplash.com/photo-1503602642458-232111445657?w=800", seo: "Ξύλινη καρέκλα από μασίφ οξιά - Casa Vero" },
   "Iris Καρέκλα Μπαρ": { url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800", seo: "Ψηλή καρέκλα μπαρ ξύλινη - Casa Vero" },
-  "Flora Μπουφές με 2 Πόρτες": { url: "https://images.unsplash.com/photo-1597006335779-2726b2b6c3ed?w=800", seo: "Μοντέρνος μπουφές σαλονιού με 2 πόρτες - Casa Vero" },
+  "Flora Μπουφές με 2 Πόρτες": { url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800", seo: "Μοντέρνος μπουφές σαλονιού με 2 πόρτες - Casa Vero" },
   "Malta": { url: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=800", seo: "Malta μπουφές κλασικής κομψότητας - Casa Vero" },
   "Melania": { url: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800", seo: "Melania μπουφές με καθρέφτη - Casa Vero" },
   "Minimal": { url: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800", seo: "Minimal μπουφές μινιμαλιστικός - Casa Vero" },
   "Minimal Floors": { url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800", seo: "Minimal Floors επιδαπέδιος μπουφές - Casa Vero" },
-  "Noelia": { url: "https://images.unsplash.com/photo-1597006335779-2726b2b6c3ed?w=800", seo: "Noelia ρομαντικός μπουφές - Casa Vero" },
+  "Noelia": { url: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800", seo: "Noelia ρομαντικός μπουφές - Casa Vero" },
   "Woody Γραφείο Δρύινο": { url: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800", seo: "Δρύινο γραφείο home office - Casa Vero" },
   "Soho Γραφείο Λευκό": { url: "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800", seo: "Λευκό γραφείο μοντέρνο - Casa Vero" },
   "Cube Δρύινο Τραπεζάκι": { url: "https://images.unsplash.com/photo-1532372576444-dda954194ad0?w=800", seo: "Δρύινο τραπεζάκι σαλονιού - Casa Vero" },
   "Nest Σετ 2 Τραπεζάκια": { url: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=800", seo: "Σετ τραπεζάκια σαλονιού που χωράνε - Casa Vero" },
-  "Henry Ψηλή Δρύινη Ραφιέρα": { url: "https://images.unsplash.com/photo-1588279102928-0f0a1e71a30d?w=800", seo: "Ψηλή βιβλιοθήκη ράφια δρυ - Casa Vero" },
+  "Henry Ψηλή Δρύινη Ραφιέρα": { url: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800", seo: "Ψηλή βιβλιοθήκη ράφια δρυ - Casa Vero" },
   "Stone Κεραμικό Βάζο": { url: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800", seo: "Χειροποίητο κεραμικό βάζο διακόσμηση - Casa Vero" },
   "Linen Λινό Μαξιλάρι": { url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800", seo: "Λινό διακοσμητικό μαξιλάρι - Casa Vero" },
-  "Amber Διακοσμητικό Μπολ": { url: "https://images.unsplash.com/photo-1565379173305-c7e3ad9354b5?w=800", seo: "Γυάλινο διακοσμητικό μπολ - Casa Vero" },
+  "Amber Διακοσμητικό Μπολ": { url: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=800", seo: "Γυάλινο διακοσμητικό μπολ - Casa Vero" },
 };
 
 const CATEGORY_IMAGES = {
@@ -52,7 +52,7 @@ const CATEGORY_IMAGES = {
   "Μπουφέδες": "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=800",
   "Γραφεία": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800",
   "Τραπεζάκια": "https://images.unsplash.com/photo-1532372576444-dda954194ad0?w=800",
-  "Βιβλιοθήκες": "https://images.unsplash.com/photo-1588279102928-0f0a1e71a30d?w=800",
+  "Βιβλιοθήκες": "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800",
   "Διακόσμηση": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800",
 };
 
