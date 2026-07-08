@@ -81,7 +81,10 @@ export const productSchema = defineType({
         {
           type: "object",
           fields: [
-            { name: "name", title: "Name", type: "string" },
+            { name: "name", title: "Name", type: "object", fields: [
+              { name: "el", title: "Ελληνικά", type: "string" },
+              { name: "en", title: "English", type: "string" },
+            ]},
             { name: "hex", title: "Hex Code", type: "string" },
           ],
         },
@@ -131,8 +134,8 @@ export const productSchema = defineType({
     },
     prepare({ title, media, subtitle }) {
       return {
-        title,
-        subtitle: `${subtitle}€`,
+        title: title || "Untitled",
+        subtitle: subtitle ? `${subtitle}€` : "",
         media,
       };
     },
