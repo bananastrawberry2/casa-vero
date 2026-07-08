@@ -22,7 +22,7 @@ export function ProductGallery({ images }: { images: SanityImage[] }) {
       <div className="relative aspect-square bg-stone-50 rounded-2xl overflow-hidden">
         <Image
           src={urlFor(images[selected]).width(800).height(800).url()}
-          alt="Product image"
+          alt="Product photo"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover"

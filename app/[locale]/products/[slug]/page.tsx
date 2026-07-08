@@ -30,7 +30,7 @@ export async function generateMetadata({
   };
 
   return {
-    title: `${name} | Casa Vero`,
+    title: name,
     description: product.seo?.description || getPlainText(product.description?.[locale === "el" ? "el" : "en"]),
     openGraph: {
       title: name,

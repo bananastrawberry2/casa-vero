@@ -52,7 +52,7 @@ export default async function HomePage({
           <div className="max-w-2xl">
             <div className="animate-fade-up">
               <span className="inline-block px-4 py-2 glass text-white/90 text-xs tracking-[0.3em] uppercase rounded-full mb-8">
-                Χειροποίητα Έπιπλα
+                {t("hero_tag")}
               </span>
             </div>
 
@@ -78,7 +78,7 @@ export default async function HomePage({
                 href={`/${locale}/about`}
                 className="inline-flex items-center px-10 py-4 glass text-white rounded-full font-medium text-sm tracking-wide hover:bg-white/20 transition-all duration-300"
               >
-                Η Ιστορία μας
+                {t("about_link")}
               </Link>
             </div>
           </div>
@@ -96,8 +96,8 @@ export default async function HomePage({
       {categories.length > 0 && (
         <section className="container-page py-20 md:py-28">
           <div className="text-center mb-14">
-            <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">Συλλογή</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-stone-800 mt-4 mb-4">Κατηγορίες</h2>
+            <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">{t("collection")}</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-stone-800 mt-4 mb-4">{t("categories")}</h2>
             <p className="text-stone-400 text-sm max-w-md mx-auto">Ανακαλύψτε τη συλλογή μας από χειροποίητα έπιπλα</p>
           </div>
 
@@ -145,7 +145,7 @@ export default async function HomePage({
         <div className="container-page">
           <div className="flex items-end justify-between mb-14">
             <div>
-              <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">Επιλογή μας</span>
+              <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">{t("our_pick")}</span>
               <h2 className="font-serif text-4xl md:text-5xl text-stone-800 mt-4">
                 {t("featured_products")}
               </h2>
@@ -179,10 +179,10 @@ export default async function HomePage({
           <div className="max-w-xl">
             <span className="text-wood-300 text-xs tracking-[0.3em] uppercase">Casa Vero</span>
             <h2 className="font-serif text-4xl md:text-6xl text-white mt-4 mb-6 leading-tight">
-              Χειροποίητα<br />με αγάπη
+              {t("hero_title")}
             </h2>
             <p className="text-white/60 text-lg mb-8">
-              Κάθε κομμάτι είναι μοναδικό, φτιαγμένο από τα χέρια τεχνιτών με μεράκι και προσοχή στη λεπτομέρεια.
+              {t("hero_subtitle")}
             </p>
             <Link
               href={`/${locale}/products`}
@@ -200,7 +200,7 @@ export default async function HomePage({
         <section className="container-page py-20 md:py-28">
           <div className="flex items-end justify-between mb-14">
             <div>
-              <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">Ιστολόγιο</span>
+              <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">{t("latest_blog")}</span>
               <h2 className="font-serif text-4xl md:text-5xl text-stone-800 mt-4">{t("latest_blog")}</h2>
             </div>
             <Link
@@ -226,9 +226,9 @@ export default async function HomePage({
         <div className="container-page py-14 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
             {[
-              { icon: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4", title: "Δωρεάν Μεταφορικά", desc: "Για παραγγελίες άνω των 100€" },
-              { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Ποιότητα Εγγύηση", desc: "Χειροποίητα με αγάπη" },
-              { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", title: "Εύκολες Επιστροφές", desc: "Εντός 14 ημερών" },
+              { icon: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4", title: t("features_title1"), desc: t("features_desc1") },
+              { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: t("features_title2"), desc: t("features_desc2") },
+              { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", title: t("features_title3"), desc: t("features_desc3") },
             ].map((f, i) => (
               <div key={i} className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r border-stone-700" : ""}`}>
                 <div className="w-12 h-12 rounded-full bg-wood-600/20 flex items-center justify-center mb-4">
