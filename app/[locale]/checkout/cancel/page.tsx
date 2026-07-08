@@ -9,17 +9,17 @@ export default function CheckoutCancelPage() {
   const locale = useLocale();
 
   return (
-    <div className="container-page py-16 text-center">
-      <XCircle className="w-16 h-16 text-red-400 mx-auto mb-4" />
-      <h1 className="font-serif text-3xl text-stone-800 mb-4">
-        {t("cancel_title")}
-      </h1>
-      <p className="text-stone-600 text-lg mb-8 max-w-md mx-auto">
-        {t("cancel_message")}
-      </p>
-      <Link href={`/${locale}/cart`} className="btn-primary">
-        {t("cancel_cta")}
-      </Link>
+    <div className="bg-cream-bg min-h-screen flex items-center justify-center">
+      <div className="text-center max-w-md mx-auto px-4">
+        <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-6">
+          <XCircle className="w-10 h-10 text-red-400" />
+        </div>
+        <h1 className="font-serif text-3xl text-stone-800 mb-4">{t("cancel_title")}</h1>
+        <p className="text-stone-500 mb-8">{t("cancel_message")}</p>
+        <Link href={`/${locale}/cart`} className="inline-flex px-8 py-3.5 bg-stone-800 text-white rounded-full text-sm font-medium hover:bg-stone-700 transition-all">
+          {t("cancel_cta")}
+        </Link>
+      </div>
     </div>
   );
 }
