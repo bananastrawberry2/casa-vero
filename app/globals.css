@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  --color-habitat-bg: #ffffff;
+  --color-habitat-text: #2e2e2e;
+  --color-habitat-muted: #999999;
+  --color-habitat-light: #f4f4f4;
+  --color-habitat-border: #e8e8e8;
+  --color-habitat-green: #83b735;
+  --color-habitat-dark: #1a1a1a;
+  --color-habitat-gray: #cfd4db;
 
   --color-wood-50: #faf7f4;
   --color-wood-100: #f0e9e0;
@@ -14,87 +23,79 @@
   --color-wood-700: #75533c;
   --color-wood-800: #634635;
   --color-wood-900: #533c2e;
-
-  --color-cream-50: #fefcf9;
-  --color-cream-100: #fdf7ef;
-  --color-cream-200: #faedd9;
-  --color-cream-300: #f5ddb5;
-  --color-cream-400: #edc788;
-  --color-cream-500: #e4ae5e;
-  --color-cream-600: #d4963e;
-  --color-cream-700: #b37b31;
-  --color-cream-800: #91632a;
-  --color-cream-900: #775225;
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply antialiased text-stone-800 bg-cream-50;
+    background-color: var(--color-habitat-bg);
+    color: var(--color-habitat-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif;
+    font-family: var(--font-serif);
   }
 
   ::selection {
-    @apply bg-wood-200 text-wood-900;
+    background-color: var(--color-wood-200);
+    color: var(--color-wood-900);
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .section-title {
-    @apply font-serif text-3xl md:text-4xl text-stone-800 mb-2 tracking-tight;
+    font-family: var(--font-serif);
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    letter-spacing: -0.025em;
+    color: var(--color-habitat-text);
+    margin-bottom: 2rem;
   }
 
-  .section-subtitle {
-    @apply text-stone-500 text-lg mb-10 font-light;
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
   }
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 bg-wood-600 text-white
-           rounded-full font-medium tracking-wide text-sm
-           hover:bg-wood-700 transition-all duration-300
-           disabled:opacity-50 disabled:cursor-not-allowed;
+  .nav-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-habitat-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-wood-400
-           text-wood-700 rounded-full font-medium tracking-wide text-sm
-           hover:bg-wood-50 hover:border-wood-500 transition-all duration-300;
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center px-4 py-2 text-stone-600
-           rounded-lg font-medium hover:bg-stone-100 transition-all duration-200;
-  }
-
-  .input-field {
-    @apply w-full px-5 py-3.5 bg-white border border-stone-200 rounded-xl
-           text-stone-800 placeholder:text-stone-400
-           focus:outline-none focus:ring-2 focus:ring-wood-300 focus:border-transparent
-           transition-all duration-200;
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .nav-link:hover {
+    color: var(--color-habitat-green);
   }
 }

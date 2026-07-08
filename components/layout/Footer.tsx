@@ -2,44 +2,31 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 
 export function Footer({ locale }: { locale: string }) {
   const t = useTranslations("footer");
   const n = useTranslations("navigation");
 
-  const links = [
-    { href: "/products", label: "products" },
-    { href: "/blog", label: "blog" },
-    { href: "/about", label: "about" },
-    { href: "/contact", label: "contact" },
-  ];
-
   return (
-    <footer className="bg-stone-900">
-      {/* Main footer */}
-      <div className="container-page py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+    <footer className="bg-habitat-dark text-white">
+      <div className="container-page py-14 md:py-18">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link
-              href={`/${locale}`}
-              className="font-serif text-2xl text-white tracking-wide"
-            >
+          <div>
+            <Link href={`/${locale}`} className="font-serif text-2xl text-white tracking-tight">
               CASA VERO
             </Link>
-            <p className="mt-5 text-stone-400 text-sm leading-relaxed max-w-xs">
+            <p className="mt-4 text-stone-400 text-sm leading-relaxed">
               {t("description")}
             </p>
-            {/* Social placeholder */}
             <div className="flex gap-3 mt-6">
-              <a href="#" className="w-9 h-9 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-wood-600 hover:text-white transition-all duration-200 text-xs font-medium">
+              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-white/20 hover:text-white transition-all text-xs">
                 f
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-wood-600 hover:text-white transition-all duration-200 text-xs font-medium">
+              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-white/20 hover:text-white transition-all text-xs">
                 in
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-wood-600 hover:text-white transition-all duration-200 text-xs font-medium">
+              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-white/20 hover:text-white transition-all text-xs">
                 ig
               </a>
             </div>
@@ -47,84 +34,73 @@ export function Footer({ locale }: { locale: string }) {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-serif text-white text-lg mb-5">
-              {t("quick_links")}
-            </h3>
+            <h4 className="text-xs uppercase tracking-widest text-white font-medium mb-5">Χρήσιμα Links</h4>
             <ul className="space-y-3">
-              {links.map((link) => (
-                <li key={link.href}>
+              {["products", "blog", "about", "contact"].map((link) => (
+                <li key={link}>
                   <Link
-                    href={`/${locale}${link.href}`}
-                    className="flex items-center gap-2 text-stone-400 text-sm hover:text-white transition-colors duration-200 group"
+                    href={`/${locale}/${link}`}
+                    className="text-sm text-stone-400 hover:text-white transition-colors"
                   >
-                    <ChevronRight className="w-3 h-3 text-wood-500 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                    {n(link.label)}
+                    {n(link)}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href={`/${locale}/privacy`} className="text-sm text-stone-400 hover:text-white transition-colors">
+                  {t("privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/terms`} className="text-sm text-stone-400 hover:text-white transition-colors">
+                  {t("terms")}
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="font-serif text-white text-lg mb-5">
-              {t("contact_info")}
-            </h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3 text-stone-400">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-wood-500" />
-                <span>{t("address_line")}</span>
-              </li>
-              <li className="flex items-center gap-3 text-stone-400">
-                <Phone className="w-4 h-4 shrink-0 text-wood-500" />
-                <span>+30 210 123 4567</span>
-              </li>
-              <li className="flex items-center gap-3 text-stone-400">
-                <Mail className="w-4 h-4 shrink-0 text-wood-500" />
-                <span>info@casavero.gr</span>
-              </li>
+            <h4 className="text-xs uppercase tracking-widest text-white font-medium mb-5">Επικοινωνία</h4>
+            <ul className="space-y-3 text-sm text-stone-400">
+              <li>Πατησίων 123</li>
+              <li>Αθήνα, 104 34</li>
+              <li>+30 210 123 4567</li>
+              <li>info@casavero.gr</li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h3 className="font-serif text-white text-lg mb-5">
-              {t("newsletter")}
-            </h3>
-            <p className="text-stone-400 text-sm mb-4">
+            <h4 className="text-xs uppercase tracking-widest text-white font-medium mb-5">Newsletter</h4>
+            <p className="text-sm text-stone-400 mb-4">
               Γίνε ο πρώτος που μαθαίνει για νέες αφίξεις και προσφορές.
             </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col gap-3"
-            >
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-3">
               <input
                 type="email"
-                placeholder={t("newsletter_placeholder")}
-                className="w-full px-4 py-3 bg-stone-800 border border-stone-700 rounded-xl text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-wood-500 focus:border-transparent transition-all"
+                placeholder="Email σας"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-habitat-green focus:border-transparent transition-all"
               />
               <button
                 type="submit"
-                className="w-full px-5 py-3 bg-wood-600 text-white text-sm rounded-xl font-medium hover:bg-wood-700 transition-colors"
+                className="w-full px-5 py-3 bg-habitat-green text-white text-sm rounded-lg font-medium hover:bg-green-600 transition-colors uppercase tracking-wider"
               >
-                {t("newsletter_cta")}
+                Εγγραφή
               </button>
             </form>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-stone-800">
-        <div className="container-page py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+      <div className="border-t border-white/10">
+        <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500">
           <p>{t("rights")}</p>
           <div className="flex gap-6">
-            <Link href={`/${locale}/privacy`} className="hover:text-stone-300 transition-colors">
-              {t("privacy")}
-            </Link>
-            <Link href={`/${locale}/terms`} className="hover:text-stone-300 transition-colors">
-              {t("terms")}
-            </Link>
+            <span className="text-white/30">Αποδοχή Πληρωμών:</span>
+            <span className="text-stone-400">Visa</span>
+            <span className="text-stone-400">Mastercard</span>
+            <span className="text-stone-400">PayPal</span>
           </div>
         </div>
       </div>
