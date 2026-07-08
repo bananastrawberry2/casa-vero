@@ -114,8 +114,10 @@
     "quick_links": "Γρήγοροι Σύνδεσμοι",
     "contact_info": "Στοιχεία Επικοινωνίας",
     "newsletter": "Newsletter",
+    "newsletter_text": "Γίνε ο πρώτος που μαθαίνει για νέες αφίξεις και προσφορές.",
     "newsletter_placeholder": "Email σας",
     "newsletter_cta": "Εγγραφή",
+    "address_line": "Πατησίων 123, Αθήνα 104 34",
     "rights": "© {year} CASA VERO. Με επιφύλαξη παντός δικαιώματος.",
     "privacy": "Πολιτική Απορρήτου",
     "terms": "Όροι Χρήσης"

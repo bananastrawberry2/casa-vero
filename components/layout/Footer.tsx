@@ -41,19 +41,18 @@ export function Footer({ locale }: { locale: string }) {
           <div>
             <h4 className="text-white text-sm font-medium mb-6 tracking-wide">{t("contact_info")}</h4>
             <ul className="space-y-3 text-stone-400 text-sm">
-              <li>Πατησίων 123</li>
-              <li>Αθήνα, 104 34</li>
+              <li>{t("address_line")}</li>
               <li>+30 210 123 4567</li>
               <li>info@casavero.gr</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white text-sm font-medium mb-6 tracking-wide">Newsletter</h4>
-            <p className="text-stone-400 text-sm mb-5">Γίνε ο πρώτος που μαθαίνει για νέες αφίξεις.</p>
+            <h4 className="text-white text-sm font-medium mb-6 tracking-wide">{t("newsletter")}</h4>
+            <p className="text-stone-400 text-sm mb-5">{t("newsletter_text")}</p>
             <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
-              <input type="email" placeholder="Email σας" className="w-full px-4 py-3 bg-stone-800 border border-stone-700 rounded-xl text-sm text-white placeholder:text-stone-500 focus:outline-none focus:border-wood-500 transition-colors" />
-              <button type="submit" className="w-full px-5 py-3 bg-wood-600 text-white rounded-xl text-sm font-medium hover:bg-wood-700 transition-colors">Εγγραφή</button>
+              <input type="email" placeholder={t("newsletter_placeholder")} className="w-full px-4 py-3 bg-stone-800 border border-stone-700 rounded-xl text-sm text-white placeholder:text-stone-500 focus:outline-none focus:border-wood-500 transition-colors" />
+              <button type="submit" className="w-full px-5 py-3 bg-wood-600 text-white rounded-xl text-sm font-medium hover:bg-wood-700 transition-colors">{t("newsletter_cta")}</button>
             </form>
           </div>
         </div>

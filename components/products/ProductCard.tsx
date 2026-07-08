@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ShoppingBag, Heart } from "lucide-react";
 import { urlFor } from "@/lib/sanity";
 import { formatPrice } from "@/lib/utils";
@@ -11,6 +11,7 @@ import { useCart } from "@/lib/cart-context";
 
 export function ProductCard({ product }: { product: Product }) {
   const locale = useLocale();
+  const t = useTranslations("products");
   const { addItem } = useCart();
   const lang = locale === "el" ? "el" : "en";
   const name = product.name[lang];
@@ -47,7 +48,7 @@ export function ProductCard({ product }: { product: Product }) {
           className="absolute bottom-4 left-4 right-4 z-10 bg-white text-stone-800 rounded-full py-3 text-xs font-medium tracking-wide opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:bg-stone-900 hover:text-white"
         >
           <ShoppingBag className="w-4 h-4" />
-          Προσθήκη στο Καλάθι
+          {t("add_to_cart")}
         </button>
 
         {/* Wishlist */}

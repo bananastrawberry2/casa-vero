@@ -1,8 +1,29 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { getFeaturedProducts, getCategories, getBlogPosts, urlFor } from "@/lib/sanity";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { BlogCard } from "@/components/blog/BlogCard";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === "en") {
+    return {
+      title: { default: "Casa Vero - Handcrafted Furniture", template: "%s | Casa Vero" },
+      description: "Discover unique, handcrafted furniture. Quality wooden furniture for your home.",
+      openGraph: { locale: "en_US", title: "Casa Vero - Handcrafted Furniture", description: "Discover unique, handcrafted furniture." },
+    };
+  }
+  return {
+    title: { default: "Casa Vero - Χειροποίητα Έπιπλα", template: "%s | Casa Vero" },
+    description: "Ανακαλύψτε μοναδικά, χειροποίητα έπιπλα. Ποιοτική ξύλινη χειροποίητη επίπλωση για τον χώρο σας.",
+    openGraph: { locale: "el_GR", title: "Casa Vero - Χειροποίητα Έπιπλα" },
+  };
+}
 
 const HERO_IMG = "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80";
 
@@ -98,7 +119,7 @@ export default async function HomePage({
           <div className="text-center mb-14">
             <span className="text-wood-500 text-xs tracking-[0.3em] uppercase font-medium">{t("collection")}</span>
             <h2 className="font-serif text-4xl md:text-5xl text-stone-800 mt-4 mb-4">{t("categories")}</h2>
-            <p className="text-stone-400 text-sm max-w-md mx-auto">Ανακαλύψτε τη συλλογή μας από χειροποίητα έπιπλα</p>
+            <p className="text-stone-400 text-sm max-w-md mx-auto">{locale === "el" ? "Ανακαλύψτε τη συλλογή μας από χειροποίητα έπιπλα" : "Discover our collection of handcrafted furniture"}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

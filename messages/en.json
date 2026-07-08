@@ -114,8 +114,10 @@
     "quick_links": "Quick Links",
     "contact_info": "Contact Info",
     "newsletter": "Newsletter",
+    "newsletter_text": "Be the first to know about new arrivals and offers.",
     "newsletter_placeholder": "Your email",
     "newsletter_cta": "Subscribe",
+    "address_line": "123 Patision St, Athens 104 34, Greece",
     "rights": "© {year} CASA VERO. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
