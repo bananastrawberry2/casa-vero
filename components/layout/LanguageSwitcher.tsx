@@ -29,7 +29,7 @@ export function LanguageSwitcher() {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-2 py-1 text-xs font-medium uppercase tracking-wider transition-colors duration-500"
+        className="flex items-center gap-1 px-2 py-1 text-xs font-medium uppercase tracking-wider transition-colors duration-500"
       >
         {locale === "el" ? "GR" : "EN"}
       </button>
