@@ -26,7 +26,7 @@ export function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="text-white text-sm font-medium mb-6 tracking-wide">Γρήγορα Links</h4>
+            <h4 className="text-white text-sm font-medium mb-6 tracking-wide">{t("quick_links")}</h4>
             <ul className="space-y-3">
               {["products", "blog", "about", "contact"].map((l) => (
                 <li key={l}>
@@ -39,7 +39,7 @@ export function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="text-white text-sm font-medium mb-6 tracking-wide">Επικοινωνία</h4>
+            <h4 className="text-white text-sm font-medium mb-6 tracking-wide">{t("contact_info")}</h4>
             <ul className="space-y-3 text-stone-400 text-sm">
               <li>Πατησίων 123</li>
               <li>Αθήνα, 104 34</li>
@@ -61,7 +61,7 @@ export function Footer({ locale }: { locale: string }) {
 
       <div className="border-t border-stone-800">
         <div className="container-page py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-          <p>{t("rights")}</p>
+          <p>{t("rights", { year: new Date().getFullYear() })}</p>
           <div className="flex gap-6">
             <span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Stripe</span>
           </div>

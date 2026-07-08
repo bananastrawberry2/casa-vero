@@ -116,7 +116,7 @@
     "newsletter": "Newsletter",
     "newsletter_placeholder": "Your email",
     "newsletter_cta": "Subscribe",
-    "rights": "© 2026 CASA VERO. All rights reserved.",
+    "rights": "© {year} CASA VERO. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },

@@ -129,7 +129,7 @@ export default async function HomePage({
                       <p className="text-white/60 text-sm">{cat.description[lang]}</p>
                     )}
                     <span className="inline-flex items-center text-white/80 text-xs tracking-widest uppercase mt-3 group-hover:gap-2 transition-all duration-300">
-                      Ανακάλυψε
+                      {locale === "el" ? "Ανακάλυψε" : "Discover"}
                       <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </span>
                   </div>

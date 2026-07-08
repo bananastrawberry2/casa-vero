@@ -116,7 +116,7 @@
     "newsletter": "Newsletter",
     "newsletter_placeholder": "Email σας",
     "newsletter_cta": "Εγγραφή",
-    "rights": "© 2026 CASA VERO. Με επιφύλαξη παντός δικαιώματος.",
+    "rights": "© {year} CASA VERO. Με επιφύλαξη παντός δικαιώματος.",
     "privacy": "Πολιτική Απορρήτου",
     "terms": "Όροι Χρήσης"
   },
