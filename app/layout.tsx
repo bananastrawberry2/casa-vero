@@ -20,25 +20,26 @@ export const metadata: Metadata = {
     template: "%s | Casa Vero",
   },
   description:
-    "Casa Vero — Χειροποίητα έπιπλα υψηλής ποιότητας. Ανακαλύψτε μοναδικές συλλογές από ξύλινα έπιπλα, τραπέζια, καρέκλες, μπουφέδες, γραφεία και διακοσμητικά. Δωρεάν μεταφορικά άνω των 100€. Παράδοση σε όλη την Ελλάδα.",
+    "Casa Vero — Χειροποίητα έπιπλα στην Αθήνα. Ανακαλύψτε μοναδικές συλλογές από ξύλινα έπιπλα, τραπέζια, καρέκλες, μπουφέδες, γραφεία και διακοσμητικά. Δωρεάν μεταφορικά άνω των 100€ σε Αθήνα, Θεσσαλονίκη και όλη την Ελλάδα. Επισκεφθείτε το κατάστημά μας στα Πατήσια.",
+  keywords: ["έπιπλα Αθήνα", "χειροποίητα έπιπλα", "ξύλινα έπιπλα", "τραπέζια φαγητού", "καρέκλες", "μπουφέδες", "γραφεία", "διακόσμηση σπιτιού", "Casa Vero", "επίπλωση", "έπιπλα Πατήσια"],
   robots: { index: true, follow: true },
   verification: { google: "ZKqgJ5f1UD2Ok-QvqV2aYotDkDAIxfnVrmbYfhU2Eb4" },
   openGraph: {
     type: "website",
     locale: "el_GR",
     siteName: "Casa Vero",
-    title: "Casa Vero - Χειροποίητα Έπιπλα",
-    description: "Ανακαλύψτε μοναδικά, χειροποίητα έπιπλα. Ποιοτική ξύλινη χειροποίητη επίπλωση για τον χώρο σας.",
+    title: "Casa Vero - Χειροποίητα Έπιπλα Αθήνα",
+    description: "Χειροποίητα έπιπλα στην Αθήνα. Τραπέζια, καρέκλες, μπουφέδες, γραφεία. Δωρεάν μεταφορικά. Επισκεφθείτε το κατάστημά μας.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Casa Vero - Χειροποίητα Έπιπλα",
-    description: "Ανακαλύψτε μοναδικά, χειροποίητα έπιπλα για το σπίτι σας.",
+    description: "Χειροποίητα έπιπλα στην Αθήνα. Δωρεάν μεταφορικά σε όλη την Ελλάδα.",
   },
   alternates: {
     languages: {
-      "el": "https://enchanting-stardust-bb9965.netlify.app/el",
-      "en": "https://enchanting-stardust-bb9965.netlify.app/en",
+      "el": "https://casa-vero-vrp3.vercel.app/el",
+      "en": "https://casa-vero-vrp3.vercel.app/en",
     },
   },
 };

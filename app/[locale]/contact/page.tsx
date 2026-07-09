@@ -97,6 +97,23 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* Google Maps */}
+      <div className="bg-stone-100">
+        <div className="container-page py-12 md:py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-2xl text-stone-800 mb-6">{locale === "el" ? "Βρείτε μας" : "Find Us"}</h2>
+            <div className="rounded-2xl overflow-hidden shadow-lg h-[400px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.5!2d23.7!3d38.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDAwJzAwLjAiTiAyM8KwNDInMDAuMCJF!5e0!3m2!1sel!2sgr!4v1"
+                width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={locale === "el" ? "Χάρτης Casa Vero" : "Casa Vero Map"}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

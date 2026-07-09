@@ -3,6 +3,7 @@ import { getMessages } from "next-intl/server";
 import { CartProvider } from "@/lib/cart-context";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LocalBusinessJsonLd, OrganizationJsonLd } from "@/components/seo/JsonLd";
 import { notFound } from "next/navigation";
 import { routing } from "@/middleware";
 
@@ -29,6 +30,8 @@ export default async function LocaleLayout({
           <main className="flex-1">{children}</main>
           <Footer locale={locale} />
         </div>
+        <LocalBusinessJsonLd />
+        <OrganizationJsonLd />
       </CartProvider>
     </NextIntlClientProvider>
   );
